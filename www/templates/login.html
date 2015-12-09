@@ -1,0 +1,27 @@
+<ion-modal-view ng-controller="LoginCtrl">
+  <ion-header-bar>
+    <h1 class="title" ng-if="isAuthenticated()">Logout</h1>
+    <h1 class="title" ng-if="!isAuthenticated()">Login</h1>
+    <div class="buttons">
+      
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      
+      <div class="list">
+
+        <label ng-if="isAuthenticated()" class="item">
+          <button  ng-click="logOut('facebook')" type="submit" class="LogButton">Sign out with Facebook</button>
+          <p>You're logged in!</p>
+        </label>
+        <label ng-if="!isAuthenticated()" class="item">
+          <button ng-click="authenticate('facebook')" type="submit" class="LogButton">Sign in with Facebook</button>
+          <p>You're logged out!</p>
+        </label>
+
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
